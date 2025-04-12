@@ -1,0 +1,18 @@
+@page "/callback"
+@inject NavigationManager NavigationManager
+
+<h3>Processing Spotify Authentication...</h3>
+
+@code {
+  protected override void OnInitialized()
+  {
+    var uri = new Uri(NavigationManager.Uri);
+    var queryParameters = System.Web.HttpUtility.ParseQueryString(uri.Query);
+        
+    var code = queryParameters["code"];
+    var state = queryParameters["state"];
+    var error = queryParameters["error"];
+        
+    NavigationManager.NavigateTo($"/spotify-auth/callback?code={Uri.EscapeDataString(code)}&state={Uri.EscapeDataString(state)}&error={Uri.EscapeDataString(error ?? "")}", forceLoad: false);
+  }
+}

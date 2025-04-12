@@ -1,0 +1,110 @@
+@page "/spotify-auth"
+@page "/spotify-auth/callback"
+@using Application.Contracts.Infrastructure
+
+@inject IAuthClient AuthClient
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JSRuntime
+
+<div class="container mt-5">
+    @if (IsLoading)
+    {
+        <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    }
+    else if (IsAuthorized)
+    {
+        <div class="alert alert-success">
+            <h4>Successfully connected to Spotify!</h4>
+            <p>You can now create weather-based playlists.</p>
+            <button class="btn btn-primary" @onclick="GoToWeatherify">Go to Weatherify</button>
+        </div>
+    }
+    else
+    {
+        <div class="card">
+            <div class="card-header">
+                <h3>Connect to Spotify</h3>
+            </div>
+            <div class="card-body">
+                <p>Connect your Spotify account to generate weather-based playlists.</p>
+                <button class="btn btn-success" @onclick="ConnectToSpotify">
+                    <i class="bi bi-spotify"></i> Connect to Spotify
+                </button>
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+    private bool IsLoading { get; set; } = true;
+    private bool IsAuthorized { get; set; } = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var uri = NavigationManager.ToAbsoluteUri(NavigationManager.Uri);
+
+        if (uri.AbsolutePath.EndsWith("/callback"))
+        {
+            // Handle callback from Spotify
+            var query = System.Web.HttpUtility.ParseQueryString(uri.Query);
+            var code = query["code"];
+            var state = query["state"];
+            var error = query["error"];
+
+            if (!string.IsNullOrEmpty(error))
+            {
+                await JSRuntime.InvokeVoidAsync("alert", $"Authorization failed: {error}");
+                NavigationManager.NavigateTo("/spotify-auth");
+                return;
+            }
+
+            try
+            {
+                await AuthClient.HandleCallbackAsync(code, state);
+                NavigationManager.NavigateTo("/spotify-auth", forceLoad: false);
+            }
+            catch (Exception ex)
+            {
+                await JSRuntime.InvokeVoidAsync("alert", $"Error handling callback: {ex.Message}");
+                NavigationManager.NavigateTo("/spotify-auth");
+            }
+        }
+        else
+        {
+            // Check if already authorized
+            try
+            {
+                IsAuthorized = await AuthClient.IsAuthorizedAsync();
+            }
+            catch
+            {
+                IsAuthorized = false;
+            }
+        }
+
+        IsLoading = false;
+    }
+
+    private async Task ConnectToSpotify()
+    {
+        IsLoading = true;
+        
+        try
+        {
+            var authUrl = await AuthClient.GetAuthorizationUrlAsync();
+            NavigationManager.NavigateTo(authUrl, forceLoad: true);
+        }
+        catch (Exception ex)
+        {
+            await JSRuntime.InvokeVoidAsync("alert", $"Error connecting to Spotify: {ex.Message}");
+            IsLoading = false;
+        }
+    }
+
+    private void GoToWeatherify()
+    {
+        NavigationManager.NavigateTo("/weatherify");
+    }
+}

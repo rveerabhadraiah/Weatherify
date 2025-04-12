@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{3781CCFF-FCA9-4A62-A3D7-CB52C3DCDA13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{E9AF9BC9-6D9A-4048-ACF6-737A63BD02F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{9CC38564-C9F0-46A8-B7BA-34AD23C89605}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistence", "Persistence\Persistence.csproj", "{735C9A1F-D7AE-4667-8BCC-1C7693EAEA72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Api\Api.csproj", "{D1628387-F108-45D0-86F8-BCF97879DA1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfrastructureTest", "InfrastructureTest\InfrastructureTest.csproj", "{BFBDDD1C-CB6B-411F-9088-2B89E0D8314D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherifyApp", "WeatherifyApp\WeatherifyApp.csproj", "{2739125A-DDAA-4C36-A393-1EC277FB7D81}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3781CCFF-FCA9-4A62-A3D7-CB52C3DCDA13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3781CCFF-FCA9-4A62-A3D7-CB52C3DCDA13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3781CCFF-FCA9-4A62-A3D7-CB52C3DCDA13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3781CCFF-FCA9-4A62-A3D7-CB52C3DCDA13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9AF9BC9-6D9A-4048-ACF6-737A63BD02F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9AF9BC9-6D9A-4048-ACF6-737A63BD02F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9AF9BC9-6D9A-4048-ACF6-737A63BD02F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9AF9BC9-6D9A-4048-ACF6-737A63BD02F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CC38564-C9F0-46A8-B7BA-34AD23C89605}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CC38564-C9F0-46A8-B7BA-34AD23C89605}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CC38564-C9F0-46A8-B7BA-34AD23C89605}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CC38564-C9F0-46A8-B7BA-34AD23C89605}.Release|Any CPU.Build.0 = Release|Any CPU
+		{735C9A1F-D7AE-4667-8BCC-1C7693EAEA72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{735C9A1F-D7AE-4667-8BCC-1C7693EAEA72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{735C9A1F-D7AE-4667-8BCC-1C7693EAEA72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{735C9A1F-D7AE-4667-8BCC-1C7693EAEA72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1628387-F108-45D0-86F8-BCF97879DA1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1628387-F108-45D0-86F8-BCF97879DA1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1628387-F108-45D0-86F8-BCF97879DA1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1628387-F108-45D0-86F8-BCF97879DA1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFBDDD1C-CB6B-411F-9088-2B89E0D8314D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFBDDD1C-CB6B-411F-9088-2B89E0D8314D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFBDDD1C-CB6B-411F-9088-2B89E0D8314D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFBDDD1C-CB6B-411F-9088-2B89E0D8314D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2739125A-DDAA-4C36-A393-1EC277FB7D81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2739125A-DDAA-4C36-A393-1EC277FB7D81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2739125A-DDAA-4C36-A393-1EC277FB7D81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2739125A-DDAA-4C36-A393-1EC277FB7D81}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

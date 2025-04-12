@@ -1,0 +1,65 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Dev\\Code\\Weatherify\\WeatherifyApp\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.webassembly.js",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js"
+    },
+    {
+      "Id": "C:\\Dev\\Code\\Weatherify\\WeatherifyApp\\obj\\Debug\\net8.0\\compressed\\w7yleikfyr.gz",
+      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js.gz"
+    },
+    {
+      "Id": "C:\\Dev\\Code\\Weatherify\\WeatherifyApp\\obj\\Debug\\net8.0\\scopedcss\\bundle\\WeatherifyApp.styles.css",
+      "PackagePath": "staticwebassets\\WeatherifyApp.styles.css"
+    },
+    {
+      "Id": "C:\\Dev\\Code\\Weatherify\\WeatherifyApp\\wwwroot\\appsettings.json",
+      "PackagePath": "staticwebassets\\appsettings.json"
+    },
+    {
+      "Id": "C:\\Dev\\Code\\Weatherify\\WeatherifyApp\\wwwroot\\css\\app.css",
+      "PackagePath": "staticwebassets\\css\\app.css"
+    },
+    {
+      "Id": "C:\\Dev\\Code\\Weatherify\\WeatherifyApp\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Dev\\Code\\Weatherify\\WeatherifyApp\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Dev\\Code\\Weatherify\\WeatherifyApp\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "C:\\Dev\\Code\\Weatherify\\WeatherifyApp\\wwwroot\\icon-192.png",
+      "PackagePath": "staticwebassets\\icon-192.png"
+    },
+    {
+      "Id": "C:\\Dev\\Code\\Weatherify\\WeatherifyApp\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "C:\\Dev\\Code\\Weatherify\\WeatherifyApp\\wwwroot\\sample-data\\weather.json",
+      "PackagePath": "staticwebassets\\sample-data\\weather.json"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.WeatherifyApp.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.WeatherifyApp.props",
+      "PackagePath": "build\\WeatherifyApp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.WeatherifyApp.props",
+      "PackagePath": "buildMultiTargeting\\WeatherifyApp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.WeatherifyApp.props",
+      "PackagePath": "buildTransitive\\WeatherifyApp.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

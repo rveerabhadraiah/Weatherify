@@ -1,7 +1,116 @@
-﻿@page "/"
+@page "/"
+@using Application.Contracts.Infrastructure
 
-<PageTitle>Home</PageTitle>
+@inject IAuthClient AuthClient
+@inject NavigationManager NavigationManager
 
-<h1>Hello, world!</h1>
+<PageTitle>Weatherify - Weather-based Spotify Playlists</PageTitle>
 
-Welcome to your new app.
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h2>Welcome to Weatherify</h2>
+                </div>
+                <div class="card-body">
+                    <p class="lead">Create Spotify playlists based on your current weather.</p>
+                    
+                    @if (IsLoading)
+                    {
+                        <div class="d-flex justify-content-center">
+                            <div class="spinner-border" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
+                    }
+                    else 
+                    {
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <div class="card mb-3">
+                                    <div class="card-header">
+                                        <h5>Your Weather</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <p>Current location: <strong>@(Location ?? "Unknown")</strong></p>
+                                        <p>Weather condition: <strong>@(WeatherCondition ?? "Checking...")</strong></p>
+                                        <p>Temperature: <strong>@(Temperature ?? "Checking...")</strong></p>
+                                        <button class="btn btn-sm btn-secondary" @onclick="RefreshWeather">
+                                            <i class="bi bi-arrow-clockwise"></i> Refresh
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5>Generate Playlist</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <p>Create a playlist that matches your current weather.</p>
+                                        <button class="btn btn-success" @onclick="GeneratePlaylist">
+                                            <i class="bi bi-music-note-list"></i> Generate Weather Playlist
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private bool IsLoading { get; set; } = true;
+    private string Location { get; set; }
+    private string WeatherCondition { get; set; }
+    private string Temperature { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Verify user is authenticated
+        try
+        {
+            var isAuthorized = await AuthClient.IsAuthorizedAsync();
+            if (!isAuthorized)
+            {
+                NavigationManager.NavigateTo("/spotify-auth");
+                return;
+            }
+            
+            // Mock weather data for demo (you would use a real weather service)
+            await Task.Delay(1000); // Simulate API call
+            Location = "New York, NY";
+            WeatherCondition = "Partly Cloudy";
+            Temperature = "68°F";
+        }
+        catch
+        {
+            NavigationManager.NavigateTo("/spotify-auth");
+            return;
+        }
+        
+        IsLoading = false;
+    }
+
+    private async Task RefreshWeather()
+    {
+        IsLoading = true;
+        
+        // Mock refreshing weather
+        await Task.Delay(1000);
+        WeatherCondition = "Sunny";
+        Temperature = "72°F";
+        
+        IsLoading = false;
+    }
+
+    private void GeneratePlaylist()
+    {
+        // Navigate to playlist generation page
+        NavigationManager.NavigateTo("/generate-playlist");
+    }
+}

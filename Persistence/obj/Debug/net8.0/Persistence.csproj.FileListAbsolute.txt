@@ -44,6 +44,7 @@ C:\Dev\Code\Weatherify\Persistence\obj\Debug\net8.0\Persistence.GeneratedMSBuild
 C:\Dev\Code\Weatherify\Persistence\obj\Debug\net8.0\Persistence.AssemblyInfoInputs.cache
 C:\Dev\Code\Weatherify\Persistence\obj\Debug\net8.0\Persistence.AssemblyInfo.cs
 C:\Dev\Code\Weatherify\Persistence\obj\Debug\net8.0\Persistence.csproj.CoreCompileInputs.cache
+C:\Dev\Code\Weatherify\Persistence\obj\Debug\net8.0\Persistence.sourcelink.json
 C:\Dev\Code\Weatherify\Persistence\obj\Debug\net8.0\Persiste.61C28332.Up2Date
 C:\Dev\Code\Weatherify\Persistence\obj\Debug\net8.0\Persistence.dll
 C:\Dev\Code\Weatherify\Persistence\obj\Debug\net8.0\refint\Persistence.dll

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "B+XQX8bMA90=",
+  "dgSpecHash": "wLPOa84K0Bs=",
   "success": true,
   "projectFilePath": "C:\\Dev\\Code\\Weatherify\\InfrastructureTest\\InfrastructureTest.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,7 @@
     "C:\\Users\\rveerabhadraiah\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.3.0\\microsoft.aspnetcore.http.features.2.3.0.nupkg.sha512",
     "C:\\Users\\rveerabhadraiah\\.nuget\\packages\\microsoft.aspnetcore.webutilities\\2.3.0\\microsoft.aspnetcore.webutilities.2.3.0.nupkg.sha512",
     "C:\\Users\\rveerabhadraiah\\.nuget\\packages\\microsoft.codecoverage\\17.8.0\\microsoft.codecoverage.17.8.0.nupkg.sha512",
+    "C:\\Users\\rveerabhadraiah\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\8.0.0\\microsoft.extensions.caching.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\rveerabhadraiah\\.nuget\\packages\\microsoft.extensions.configuration\\8.0.0\\microsoft.extensions.configuration.8.0.0.nupkg.sha512",
     "C:\\Users\\rveerabhadraiah\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\8.0.0\\microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\rveerabhadraiah\\.nuget\\packages\\microsoft.extensions.configuration.binder\\8.0.2\\microsoft.extensions.configuration.binder.8.0.2.nupkg.sha512",

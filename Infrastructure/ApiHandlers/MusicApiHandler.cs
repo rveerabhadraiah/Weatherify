@@ -1,3 +1,5 @@
+using Domain.Auth;
+using Infrastructure.ApiResponse.Music;
 using Infrastructure.MusicService.Auth;
 
 namespace Infrastructure.ApiHandlers;
@@ -14,28 +16,33 @@ public class MusicApiHandler(ITokenStore tokenStore, ISpotifyAuthService spotify
     
     await EnsureAccessTokenAsync();
     
-    var tokens = await _tokenStore.GetTokenAsync();
-    if(string.IsNullOrWhiteSpace(tokens.AccessToken) || DateTime.UtcNow >= tokens.ExpiresAt)
+    var tokenResult = await _tokenStore.GetTokenAsync("roshan");
+    var token = tokenResult.Token ?? Token.Empty;
+
+
+    if(string.IsNullOrWhiteSpace(token.AccessToken) || DateTime.UtcNow >= token.ExpiresAt)
       throw new InvalidOperationException($"No access token available. User must authenticate");
     
-    request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", tokens.AccessToken);
+    request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token.AccessToken);
     return await base.SendAsync(request, cancellationToken);
   }
   
   private async Task EnsureAccessTokenAsync()
   {
-    var tokens = await _tokenStore.GetTokenAsync();
+    var tokenResult = await _tokenStore.GetTokenAsync("roshan");
+    var token = tokenResult.Token ?? Token.Empty;
 
-    if (string.IsNullOrWhiteSpace(tokens.AccessToken) || DateTime.UtcNow >= tokens.ExpiresAt)
+
+    if (string.IsNullOrWhiteSpace(token.AccessToken) || DateTime.UtcNow >= token.ExpiresAt)
     {
-      if (string.IsNullOrEmpty(tokens.RefreshToken))
+      if (string.IsNullOrEmpty(token.RefreshToken))
         throw new InvalidOperationException("No refresh token available. User must authenticate");
             
-      var result = await _spotifyAuthService.RefreshAccessTokenAsync(tokens.RefreshToken);
-      if (!result.Success)
-        throw new InvalidOperationException($"Failed to refresh access token: {result.Error}");
-            
-      await _tokenStore.SaveTokenAsync(result.AccessToken, result.RefreshToken, result.ExpiresAt);
+      var refreshTokenResult = await _spotifyAuthService.RefreshAccessTokenAsync(token.RefreshToken);
+      if (!refreshTokenResult.Success)
+        throw new InvalidOperationException($"Failed to refresh access token: {refreshTokenResult.Error}");
+      
+      await _tokenStore.SaveTokenAsync("roshan", refreshTokenResult);
     }
   }
 }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "sLH8XUXve30=",
+  "dgSpecHash": "GVf7MCy89Cs=",
   "success": true,
   "projectFilePath": "C:\\Dev\\Code\\Weatherify\\Api\\Api.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,7 @@
     "C:\\Users\\rveerabhadraiah\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.14\\microsoft.aspnetcore.openapi.8.0.14.nupkg.sha512",
     "C:\\Users\\rveerabhadraiah\\.nuget\\packages\\microsoft.aspnetcore.webutilities\\2.3.0\\microsoft.aspnetcore.webutilities.2.3.0.nupkg.sha512",
     "C:\\Users\\rveerabhadraiah\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\rveerabhadraiah\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\8.0.0\\microsoft.extensions.caching.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\rveerabhadraiah\\.nuget\\packages\\microsoft.extensions.configuration\\8.0.0\\microsoft.extensions.configuration.8.0.0.nupkg.sha512",
     "C:\\Users\\rveerabhadraiah\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\8.0.0\\microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\rveerabhadraiah\\.nuget\\packages\\microsoft.extensions.configuration.binder\\8.0.2\\microsoft.extensions.configuration.binder.8.0.2.nupkg.sha512",

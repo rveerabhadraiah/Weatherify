@@ -1,6 +1,7 @@
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.Json;
+using Domain.Auth;
 using Infrastructure.ApiResponse.Music;
 using Infrastructure.Configs;
 using Microsoft.Extensions.Options;
@@ -141,16 +142,19 @@ public class SpotifyAuthService(HttpClient httpClient, IOptions<SpotifyApiOption
         };
       }
 
-      var tokenResponse = JsonSerializer.Deserialize<TokenResponse>(responseContent);
+      var tokenResponse = JsonSerializer.Deserialize<SpotifyTokenResponse>(responseContent);
       if (tokenResponse == null)
         throw new NullReferenceException("token response is null");
                 
       return new TokenResult
       {
         Success = true,
-        AccessToken = tokenResponse.AccessToken,
-        RefreshToken = tokenResponse.RefreshToken ?? parameters.GetValueOrDefault("refresh_token"),
-        ExpiresAt = DateTime.UtcNow.AddSeconds(tokenResponse.ExpiresIn)
+        Token = new Token
+        {
+          AccessToken = tokenResponse.AccessToken,
+          RefreshToken = tokenResponse.RefreshToken ?? parameters.GetValueOrDefault("refresh_token"),
+          ExpiresAt = DateTime.UtcNow.AddSeconds(tokenResponse.ExpiresIn)
+        }
       };
     }
     catch (Exception ex)
@@ -162,6 +166,4 @@ public class SpotifyAuthService(HttpClient httpClient, IOptions<SpotifyApiOption
       };
     }
   }
-  
-  
 }

@@ -1,18 +1,10 @@
 ﻿@using Application.Contracts.Infrastructure
-@using Infrastructure.MusicService.Auth
 @inherits LayoutComponentBase
 @inject NavigationManager NavigationManager
 @inject IAuthClient SpotifyAuthClient
+
 <div class="page">
-  <div class="sidebar">
-    <NavMenu/>
-  </div>
-
   <main>
-    <div class="top-row px-4">
-      <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
-    </div>
-
     <article class="content px-4">
       @Body
     </article>
@@ -23,19 +15,29 @@
 {
   protected override async Task OnInitializedAsync()
   {
-    // Don't redirect if we're already on an auth-related page
-    var currentUri = NavigationManager.Uri;
-    if (currentUri.Contains("/spotify-auth") || currentUri.Contains("/callback"))
+    // Get current path
+    var uri = new Uri(NavigationManager.Uri);
+    var path = uri.AbsolutePath;
+
+    // Skip auth check for auth-related pages
+    if (path.Contains("/spotify-auth") || path.Contains("/callback"))
       return;
-            
+
     // Check if user is already authorized
-    bool isAuthorized = await SpotifyAuthClient.IsAuthorizedAsync();
-        
+    var isAuthorized = false;
+    try
+    {
+      isAuthorized = await SpotifyAuthClient.IsAuthorizedAsync();
+    }
+    catch
+    {
+      isAuthorized = false;
+    }
+
     if (!isAuthorized)
     {
       // User isn't authorized, redirect to auth page
       NavigationManager.NavigateTo("/spotify-auth");
     }
   }
-
 }

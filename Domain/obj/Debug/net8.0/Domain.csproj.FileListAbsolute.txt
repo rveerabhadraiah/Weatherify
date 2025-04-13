@@ -5,6 +5,7 @@ C:\Dev\Code\Weatherify\Domain\obj\Debug\net8.0\Domain.GeneratedMSBuildEditorConf
 C:\Dev\Code\Weatherify\Domain\obj\Debug\net8.0\Domain.AssemblyInfoInputs.cache
 C:\Dev\Code\Weatherify\Domain\obj\Debug\net8.0\Domain.AssemblyInfo.cs
 C:\Dev\Code\Weatherify\Domain\obj\Debug\net8.0\Domain.csproj.CoreCompileInputs.cache
+C:\Dev\Code\Weatherify\Domain\obj\Debug\net8.0\Domain.sourcelink.json
 C:\Dev\Code\Weatherify\Domain\obj\Debug\net8.0\Domain.dll
 C:\Dev\Code\Weatherify\Domain\obj\Debug\net8.0\refint\Domain.dll
 C:\Dev\Code\Weatherify\Domain\obj\Debug\net8.0\Domain.pdb

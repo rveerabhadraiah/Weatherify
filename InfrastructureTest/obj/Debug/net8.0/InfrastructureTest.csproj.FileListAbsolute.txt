@@ -136,9 +136,11 @@ C:\Dev\Code\Weatherify\InfrastructureTest\obj\Debug\net8.0\InfrastructureTest.Ge
 C:\Dev\Code\Weatherify\InfrastructureTest\obj\Debug\net8.0\InfrastructureTest.AssemblyInfoInputs.cache
 C:\Dev\Code\Weatherify\InfrastructureTest\obj\Debug\net8.0\InfrastructureTest.AssemblyInfo.cs
 C:\Dev\Code\Weatherify\InfrastructureTest\obj\Debug\net8.0\InfrastructureTest.csproj.CoreCompileInputs.cache
+C:\Dev\Code\Weatherify\InfrastructureTest\obj\Debug\net8.0\InfrastructureTest.sourcelink.json
 C:\Dev\Code\Weatherify\InfrastructureTest\obj\Debug\net8.0\Infrastr.3EB70036.Up2Date
 C:\Dev\Code\Weatherify\InfrastructureTest\obj\Debug\net8.0\InfrastructureTest.dll
 C:\Dev\Code\Weatherify\InfrastructureTest\obj\Debug\net8.0\refint\InfrastructureTest.dll
 C:\Dev\Code\Weatherify\InfrastructureTest\obj\Debug\net8.0\InfrastructureTest.pdb
 C:\Dev\Code\Weatherify\InfrastructureTest\obj\Debug\net8.0\InfrastructureTest.genruntimeconfig.cache
 C:\Dev\Code\Weatherify\InfrastructureTest\obj\Debug\net8.0\ref\InfrastructureTest.dll
+C:\Dev\Code\Weatherify\InfrastructureTest\bin\Debug\net8.0\Microsoft.Extensions.Caching.Abstractions.dll

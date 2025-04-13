@@ -1,5 +1,7 @@
 using System.Net.Http.Json;
+using System.Text.Json;
 using Application.Contracts.Infrastructure;
+using Domain.Auth;
 
 namespace Infrastructure.MusicService.Auth;
 
@@ -13,12 +15,22 @@ public class SpotifyAuthClient(HttpClient httpClient) : IAuthClient
 
   public async Task HandleCallbackAsync(string code, string state)
   {
-    await httpClient.GetAsync($"api/SpotifyAuth/callback?code={Uri.EscapeDataString(code)}&state={Uri.EscapeDataString(state)}");
+    var response = await httpClient.GetAsync($"api/SpotifyAuth/callback?code={Uri.EscapeDataString(code)}&state={Uri.EscapeDataString(state)}");
   }
 
   public async Task<bool> IsAuthorizedAsync()
   {
-    var response = await httpClient.GetAsync($"api/SpotifyAuth/is-authorized");
-    return await response.Content.ReadFromJsonAsync<bool>();
+    try
+    {
+      var response = await httpClient.GetAsync("api/SpotifyAuth/is-authorized");
+      response.EnsureSuccessStatusCode();
+
+      var authStatus = await response.Content.ReadFromJsonAsync<AuthorizationStatus>();
+      return authStatus?.IsAuthorized ?? false;
+    }
+    catch
+    {
+      return false; 
+    }
   }
 }

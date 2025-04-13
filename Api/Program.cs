@@ -5,6 +5,7 @@ using Infrastructure.MusicService.Auth;
 using Infrastructure.WeatherService;
 
 var builder = WebApplication.CreateBuilder(args);
+
 builder.Services.AddControllers();
 builder.Services.AddCors(options =>
 {
@@ -14,7 +15,13 @@ builder.Services.AddCors(options =>
     .AllowCredentials());
 });
 builder.Services.AddDistributedMemoryCache();
-builder.Services.AddSession();
+builder.Services.AddSession(options =>
+{
+  options.IdleTimeout = TimeSpan.FromMinutes(60);
+  options.Cookie.HttpOnly = true;
+  options.Cookie.IsEssential = true;
+  options.Cookie.SameSite = SameSiteMode.Lax;
+});
 
 builder.Services.AddHttpContextAccessor();
 
@@ -24,7 +31,9 @@ builder.Services.Configure<SpotifyApiOptions>(builder.Configuration.GetSection("
 // Spotify Services
 builder.Services.AddTransient<MusicApiHandler>();
 builder.Services.AddScoped<ISpotifyAuthService, SpotifyAuthService>();
-builder.Services.AddScoped<ITokenStore, SessionTokenStore>();
+builder.Services.AddScoped<ITokenStore,DistributedCacheTokenStore>();
+builder.Services.AddScoped<IOAuthStateStore, DistributedCacheOAuthStateStore>();
+
 
 // Weather Services
 builder.Services.AddTransient<WeatherApiHandler>();

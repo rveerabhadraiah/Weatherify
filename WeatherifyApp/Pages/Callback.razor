@@ -1,18 +1,56 @@
 @page "/callback"
-@inject NavigationManager NavigationManager
+@using Application.Contracts.Infrastructure
 
-<h3>Processing Spotify Authentication...</h3>
+@inject IAuthClient AuthClient
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JSRuntime
+
+<PageTitle>Processing Authorization - Weatherify</PageTitle>
+
+<div class="container mt-5 text-center">
+  <h3>Processing Spotify Authentication...</h3>
+  <div class="spinner-border mt-3" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
 
 @code {
-  protected override void OnInitialized()
+  protected override async Task OnInitializedAsync()
   {
     var uri = new Uri(NavigationManager.Uri);
     var queryParameters = System.Web.HttpUtility.ParseQueryString(uri.Query);
         
     var code = queryParameters["code"];
     var state = queryParameters["state"];
-    var error = queryParameters["error"];
+    var error = queryParameters["error"] ?? string.Empty; // Provide empty string if null
         
-    NavigationManager.NavigateTo($"/spotify-auth/callback?code={Uri.EscapeDataString(code)}&state={Uri.EscapeDataString(state)}&error={Uri.EscapeDataString(error ?? "")}", forceLoad: false);
+    if (!string.IsNullOrEmpty(error))
+    {
+      await JSRuntime.InvokeVoidAsync("alert", $"Authorization failed: {error}");
+      NavigationManager.NavigateTo("/spotify-auth");
+      return;
+    }
+        
+    if (string.IsNullOrEmpty(code))
+    {
+      await JSRuntime.InvokeVoidAsync("alert", "Authentication failed: No authorization code received");
+      NavigationManager.NavigateTo("/spotify-auth");
+      return;
+    }
+        
+    try
+    {
+      // Process the authorization callback
+      await AuthClient.HandleCallbackAsync(code, state);
+            
+      // Redirect to the home page after successful authorization
+      NavigationManager.NavigateTo("/");
+    }
+    catch (Exception ex)
+    {
+      await JSRuntime.InvokeVoidAsync("console.error", ex.ToString());
+      await JSRuntime.InvokeVoidAsync("alert", $"Error handling callback: {ex.Message}");
+      NavigationManager.NavigateTo("/spotify-auth");
+    }
   }
 }

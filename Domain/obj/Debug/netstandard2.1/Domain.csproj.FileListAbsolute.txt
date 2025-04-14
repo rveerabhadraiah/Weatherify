@@ -1,9 +1,0 @@
-C:\Dev\Code\Weatherify\Domain\bin\Debug\netstandard2.1\Domain.deps.json
-C:\Dev\Code\Weatherify\Domain\bin\Debug\netstandard2.1\Domain.dll
-C:\Dev\Code\Weatherify\Domain\bin\Debug\netstandard2.1\Domain.pdb
-C:\Dev\Code\Weatherify\Domain\obj\Debug\netstandard2.1\Domain.GeneratedMSBuildEditorConfig.editorconfig
-C:\Dev\Code\Weatherify\Domain\obj\Debug\netstandard2.1\Domain.AssemblyInfoInputs.cache
-C:\Dev\Code\Weatherify\Domain\obj\Debug\netstandard2.1\Domain.AssemblyInfo.cs
-C:\Dev\Code\Weatherify\Domain\obj\Debug\netstandard2.1\Domain.csproj.CoreCompileInputs.cache
-C:\Dev\Code\Weatherify\Domain\obj\Debug\netstandard2.1\Domain.dll
-C:\Dev\Code\Weatherify\Domain\obj\Debug\netstandard2.1\Domain.pdb
